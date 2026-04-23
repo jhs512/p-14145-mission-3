@@ -31,6 +31,16 @@ public class WiseSayingService {
         return false;
     }
 
+    public void modify (int id, String content, String author) {
+        WiseSaying wiseSaying = wiseSayingRepository.findById(id);
+        wiseSaying.setContent(content);
+        wiseSaying.setAuthor(author);
+    }
+
+    public WiseSaying getById(int id) {
+        return wiseSayingRepository.findById(id);
+    }
+
 
 
 }
