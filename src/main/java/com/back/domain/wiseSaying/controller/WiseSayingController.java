@@ -18,7 +18,7 @@ public class WiseSayingController {
     Scanner scanner = new Scanner(System.in);
 
     public void register() {
-        System.out.println("명언:");
+        System.out.print("명언 : ");
         String wish = scanner.nextLine().trim();
 
         System.out.print("작가 : ");
