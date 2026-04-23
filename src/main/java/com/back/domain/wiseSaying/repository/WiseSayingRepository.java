@@ -35,4 +35,6 @@ public class WiseSayingRepository {
         wiseSaying.setContent(content);
         wiseSaying.setAuthor(author);
     }
+
+
 }
