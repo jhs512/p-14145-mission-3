@@ -29,4 +29,10 @@ public class WiseSayingRepository {
     public void delete(WiseSaying wiseSaying ) {
         wiseSayings.remove(wiseSaying);
     }
+
+    public void update(int id, String content, String author) {
+        WiseSaying wiseSaying = findById(id);
+        wiseSaying.setContent(content);
+        wiseSaying.setAuthor(author);
+    }
 }
