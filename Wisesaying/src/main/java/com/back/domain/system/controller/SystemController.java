@@ -2,8 +2,14 @@ package com.back.domain.system.controller;
 
 import com.back.domain.wiseSaying.controller.WiseSayingController;
 
+import java.util.Scanner;
+
 public class SystemController {
-    WiseSayingController wiseSayingController = new WiseSayingController();
+    WiseSayingController wiseSayingController;
+
+    public SystemController(Scanner sc) {
+        wiseSayingController = new WiseSayingController(sc);
+    }
 
     public void getCommand(String userCommand) {
         switch(userCommand) {
@@ -13,6 +19,8 @@ public class SystemController {
             case "목록":
                 wiseSayingController.getWiseSaying();
                 break;
+            case "종료":
+                System.out.println("프로그램을 종료합니다.");
             default:
                 String[] splitCommand = userCommand.split("\\?id=");
                 switch (splitCommand[0]) {

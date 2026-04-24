@@ -7,8 +7,12 @@ import java.util.Scanner;
 
 public class WiseSayingController {
     int wiseCount = 0;
-    Scanner sc = new Scanner(System.in);
+    private final Scanner sc;
     WiseSayingService wiseSayingService = new WiseSayingService();
+
+    public WiseSayingController(Scanner sc) {
+        this.sc = sc;
+    }
 
     public void createWiseSaying() {
         System.out.print("명언 : ");
