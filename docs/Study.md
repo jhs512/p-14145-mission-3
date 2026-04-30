@@ -1,0 +1,25 @@
+### 11단계 노트: 스프링 부트의 일반적인 구조
+- 목적: 11단계에 제시된 프로젝트 폴더 구조(controller, service, repository, entity)의 이해
+- 스프링 부트의 일반적 구조
+    - 프레젠테이션 계층: 사용자 요청 접수, 응답 반환
+        - Controller, RestController
+        - 기능: HTTP 요청 매핑(URL 요청을 서버의 특정 메서드와 연결, 어노테이션들 있음), 파라미터 검증, 비즈니스 계청으로 요청 전달, JSON/HTML 응답 반환
+    - 비즈니스 계층: 핵심 로직 구현
+        - Service, Service Implementation
+        - 기능: 트랜잭션 관리, 도메인 모델 간의 데이터 흐름 제어, 비즈니스 규칙 처리, 컨트롤러와 데이터 접근 계층 연결
+    - 데이터 접근 계층: DB, 외부 저장소와 통신
+        - Repository, DAO(Data Access Object)
+        - 기능: Spring Data JPA(자바 객체와 RDBMS 매핑 기술 Java Persistent API를 스프링에서 쉽게 사용할 수 있도록 추상화한 모듈. 메서드 이름을 규칙에 맞게 작성하면 알아서 sql 실행 등) 등 사용해 실제 DB에 접근, 데이터 CRUD
+    - 공통 요소, 데이터 전달
+        - DTO(Data Transfer Object): 계층간 데이터 교환을 위해 사용하는 객체
+        - Entity: 실제 DB 테이블과 매핑되는 자바 객체
+        - Configuration: 빈(Bean(스프링 컨테이너(IoC(Inverse of Control-제어역전) 컨테이너)가 직접 생성 설정 관리하는 자바 객체. 클래스 위에 어노테이션을 붙이거나 configuration 클래스 내에 \@Bean 등으로 등록. 등록된 빈은 필요한 곳에 \@Autowired 등으로 의존성 주입되어 사용됨)) 이나 외부 라이브러리 설정
+- 데이터 흐름 순서
+    - Controller: client의 요청 수신 및 DTO(Data Transfer Object) 변환
+    - Service: 비즈니스 로직
+    - Repository: DB작업
+    - Service: 결과 반환
+    - Controller: 최종 응답(json 등) 반환
+- 구조의 목적: 개발자가 비즈니스 로직에만 집중할 수 있도록. 결합도 낮추고, 테스트 용이하게.
+##### 비고
+- 데이터 출처: 제미나이 검색 후 일부 정리
