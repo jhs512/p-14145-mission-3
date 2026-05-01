@@ -1,3 +1,3 @@
-# 과제 제출방법
-- 리포지터리 FORK 후 PR 보내주세요.
-- PR명 : `[BE12]홍길동`
+# 명언게시판 11~12단계 구현
+- Controller, Service, Repository 구조 도입
+- TDD적용(JUNIT 사용)
